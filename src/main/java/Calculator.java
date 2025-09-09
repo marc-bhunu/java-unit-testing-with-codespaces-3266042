@@ -16,12 +16,11 @@ public class Calculator {
 
     // This method should return the result of diving x by y.
     public int divide(int x, int y) {
-        if(y == 0) {
+        if (y == 0) {
             throw new IllegalArgumentException("Ints cannot be divided by zero");
         }
         return x / y;
     }
-
 
     public boolean isEven(int i) {
         return i % 2 == 0;
@@ -29,10 +28,23 @@ public class Calculator {
 
     public int[] incrementArray(int[] values) {
         int[] newValues = new int[values.length];
-        for(int i = 0; i < values.length; i++) {
+        for (int i = 0; i < values.length; i++) {
             newValues[i] = values[i] + 1;
         }
         return newValues;
+    }
+
+    public boolean isPalindrome(String str) {
+        int left = 0;
+        int right = str.length() - 1;
+        while (left < right) {
+            if (str.charAt(left) != str.charAt(right)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
     }
 
 }
