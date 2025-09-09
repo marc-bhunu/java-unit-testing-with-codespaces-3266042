@@ -19,6 +19,6 @@
   "terminal.integrated.fontSize": 18,
   "workbench.colorTheme": "Monokai",
   "workbench.fontAliasing": "antialiased",
-  "workbench.statusBar.visible": true,
+ "workbench.statusBar.visible": true,
   "java.server.launchMode": "Standard"
 }

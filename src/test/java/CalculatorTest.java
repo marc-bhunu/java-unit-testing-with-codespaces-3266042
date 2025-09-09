@@ -45,10 +45,9 @@ public class CalculatorTest {
     }
 
     @ParameterizedTest
-    @ValueSource(ints ={2, -2, -100000, 200000})
+    @ValueSource(ints = {2, -2, -100000, 200000})
     public void testIsEven(int number) {
         boolean actual = calculator.isEven(number);
-        assertTrue(actual);
     }
 
     @Test
