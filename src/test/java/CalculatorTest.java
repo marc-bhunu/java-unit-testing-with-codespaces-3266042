@@ -1,4 +1,6 @@
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -42,10 +44,10 @@ public class CalculatorTest {
         assertEquals(expected, actual);
     }
 
-    @Test
-    public void testIsEven() {
-        boolean actual = calculator.isEven(2);
-
+    @ParameterizedTest
+    @ValueSource(ints ={2, -2, -100000, 200000})
+    public void testIsEven(int number) {
+        boolean actual = calculator.isEven(number);
         assertTrue(actual);
     }
 
@@ -67,13 +69,26 @@ public class CalculatorTest {
 
     @Test
     public void testDivideByZero() {
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> calculator.divide(1, 0));
+        Exception exception = assertThrows(IllegalArgumentException.class, 
+        () -> calculator.divide(1, 0));
 
         String expected = "Ints cannot be divided by zero";
 
         String actual = exception.getMessage();
 
         assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testIsPalindrome() {
+        boolean actual = calculator.isPalindrome("racecar");
+        assertTrue(actual);
+    }
+
+    @Test
+    public void testIsNotPalindrome() {
+        boolean actual = calculator.isPalindrome("boy");
+        assertFalse(actual);
     }
 
 }
